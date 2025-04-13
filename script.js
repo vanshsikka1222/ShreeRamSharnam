@@ -1,5 +1,11 @@
 const excelFile = document.getElementById("excel-file");
 const tableContainer = document.getElementById("table-container");
+const filterControls = document.getElementById("filter-controls");
+const categorySelect = document.getElementById("category-select");
+const searchInput = document.getElementById("search-input");
+
+let globalHeaders = [];
+let globalRows = [];
 
 excelFile.addEventListener("change", (event) => {
   const file = event.target.files[0];
@@ -13,14 +19,36 @@ excelFile.addEventListener("change", (event) => {
     const worksheet = workbook.Sheets[firstSheetName];
     const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-    // Skipping first row (MASTER FILE)
-    const headers = jsonData[1];          // Actual headers in row 2
-    const rows = jsonData.slice(2);       // Data from row 3 onwards
+    const headers = jsonData[1]; // headers in 2nd row
+    const rows = jsonData.slice(2); // data from 3rd row
 
-    renderTable(headers, rows);
+    globalHeaders = headers;
+    globalRows = rows;
+
+    renderTable(globalHeaders, globalRows);
+    populateCategoryDropdown(globalHeaders);
+    filterControls.style.display = "block";
   };
 
   reader.readAsArrayBuffer(file);
+});
+
+function populateCategoryDropdown(headers) {
+  categorySelect.innerHTML = headers
+    .map((header, index) => `<option value="${index}">${header}</option>`)
+    .join('');
+}
+
+searchInput.addEventListener("input", () => {
+  const colIndex = parseInt(categorySelect.value);
+  const query = searchInput.value.toLowerCase();
+
+  const filteredRows = globalRows.filter(row => {
+    const cell = row[colIndex];
+    return cell && cell.toString().toLowerCase().includes(query);
+  });
+
+  renderTable(globalHeaders, filteredRows);
 });
 
 function renderTable(headers, rows) {
