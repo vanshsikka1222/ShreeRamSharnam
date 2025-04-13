@@ -3,10 +3,10 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Noto Sans Devanagari', sans-serif;
   padding: 1rem;
   margin: 0;
-  background: linear-gradient(to bottom, #fffce1, #ffe9aa);
+  background: linear-gradient(to bottom, #ffca80, #f9f9f9);
   color: #333;
   overflow-x: hidden;
 }
@@ -78,7 +78,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
-  min-width: 900px; /* remove if all columns are short */
+  min-width: 900px;
 }
 
 thead th {
@@ -106,7 +106,6 @@ tbody tr:hover {
   background-color: #f1f7ff;
 }
 
-/* Download Button */
 #download-pdf {
   position: fixed;
   bottom: 20px;
@@ -128,26 +127,51 @@ tbody tr:hover {
   background-color: #e67300;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
+/* Loading message with spinner */
+.loading-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  z-index: 9999;
+  font-weight: bold;
+  gap: 15px;
+}
 
-  .filter-box {
-    min-width: 100%;
-  }
+/* Spinner animation */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
 
-  #download-pdf {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
-  .center-instruction {
-    text-align: center;
-    font-size: 0.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    color: #555;
-    font-weight: 500;
+/* For PDF printing */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-container, .print-container * {
+    visibility: visible;
+  }
+  .print-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
 }
