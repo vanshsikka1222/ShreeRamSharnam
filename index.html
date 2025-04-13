@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Excel Viewer with Category Search</title>
+  <title>Excel Filter Viewer</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
-  <h1>Shree Ram Sharnam</h1>
-  <h2>📥 Upload MASTER Excel File</h2>
+  <h1>📊 Excel Filter Viewer</h1>
+
   <input type="file" id="excel-file" accept=".xlsx, .xls, .csv" />
-
-  <div id="filter-controls">
-    <label for="category-select"><strong>🔍 Select Category:</strong></label>
-    <select id="category-select"></select>
-    <input type="text" id="search-input" placeholder="Search..." />
-  </div>
-
+  <div id="filter-container"></div>
   <div id="table-container"></div>
+  
+  <button id="download-pdf" class="btn-download">📥 Download as PDF</button>
 
   <script src="script.js"></script>
 </body>
