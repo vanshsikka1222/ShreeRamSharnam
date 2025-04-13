@@ -1,17 +1,16 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 2rem;
-  background: linear-gradient(to bottom, #ffffff, #fdbf67); /* Lighter gradient (yellow to light orange) */
+  background: linear-gradient(to bottom, #fff9c4, #ffe493); /* Vertical gradient */
   color: #333;
-  white-space: nowrap;
   text-align: center;
   height: 100vh;
   margin: 0;
 }
 
 h1 {
-  font-size: 3rem; /* Shortened size */
-  color: #ff8c00; /* Orange color */
+  font-size: 3rem;
+  color: #ff8c00;
   margin-bottom: 2.5rem;
   font-family: 'Arial', sans-serif;
   font-weight: bold;
@@ -25,7 +24,7 @@ h2 {
 }
 
 input[type="file"] {
-  padding: 10px 16px; /* Normal size as before */
+  padding: 10px 16px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -36,6 +35,26 @@ input[type="file"] {
 
 input[type="file"]:hover {
   background-color: #f2f2f2;
+}
+
+#filter-controls {
+  margin-top: 2rem;
+  display: none;
+}
+
+#category-select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#search-input {
+  margin-left: 1rem;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 #table-container {
@@ -77,7 +96,6 @@ tbody tr:hover td {
   background-color: #f1f7ff;
 }
 
-/* Responsive adjustments */
 @media screen and (max-width: 768px) {
   body {
     padding: 1rem;
@@ -87,9 +105,11 @@ tbody tr:hover td {
     font-size: 2.5rem;
   }
 
-  input[type="file"] {
+  input[type="file"],
+  #search-input,
+  #category-select {
     width: 100%;
-    padding: 10px;
+    margin-top: 10px;
   }
 
   table {
