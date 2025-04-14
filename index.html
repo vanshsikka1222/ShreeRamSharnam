@@ -10,6 +10,8 @@
 
   <!-- Excel library -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
   
   <!-- PDF libraries (loaded dynamically in script.js) -->
 </head>
@@ -21,7 +23,11 @@
   <div id="filter-container"></div>
   <div id="table-container"></div>
   
-  <button id="download-pdf" class="btn-download">📥 Download as PDF</button>
+  <div class="download-buttons">
+    <button id="download-excel" class="btn-download excel-btn">📊 Download as Excel</button>
+    <button id="download-pdf" class="btn-download pdf-btn">📥 Download as PDF</button>
+  </div>
+
 
   <script src="script.js"></script>
 </body>
