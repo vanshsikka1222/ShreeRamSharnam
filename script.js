@@ -18,11 +18,6 @@ excelFile.addEventListener("change", (event) => {
     const worksheet = workbook.Sheets[sheetName];
     const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-    if (jsonData.length < 2) {
-      alert("Invalid Excel Format. First row should be empty, second row as headers.");
-      return;
-    }
-
     globalHeaders = jsonData[1];
     globalRows = jsonData.slice(2);
     currentFiltered = [...globalRows];
@@ -248,3 +243,31 @@ downloadBtn.addEventListener("click", async function() {
     document.body.removeChild(loadingMsg);
   }
 });
+
+// Your PDF download logic
+downloadBtn.addEventListener("click", async function() {
+  // ... PDF code ...
+});
+
+// ✅ This goes OUTSIDE the above function
+document.getElementById("download-excel").addEventListener("click", () => {
+  if (!currentFiltered || currentFiltered.length === 0) {
+    alert("No data to export!");
+    return;
+  }
+
+  const dataToExport = currentFiltered.map(row => {
+    const obj = {};
+    globalHeaders.forEach((header, i) => {
+      obj[header] = row[i] !== undefined ? row[i] : "";
+    });
+    return obj;
+  });
+
+  const worksheet = XLSX.utils.json_to_sheet(dataToExport);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Filtered Data");
+
+  XLSX.writeFile(workbook, "filtered-data.xlsx");
+});
+
