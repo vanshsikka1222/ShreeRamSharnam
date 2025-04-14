@@ -7,6 +7,7 @@ A powerful web-based tool for managing and processing Excel data. Built for ease
 - 📥 **Import Excel Files** – Upload and parse `.xlsx` or `.xls` files seamlessly.
 - 🔍 **Search & Filter** – Instantly search and filter through imported data with ease.
 - 📄 **Download as PDF** – Export filtered data to a clean, printable PDF format.
+- 📄 **Download as Excel** – Export filtered data to a clean, Excel format.
 - 📑 **Download with Template** – Generate documents using a predefined template for consistent formatting.
 
 ## 🚀 Getting Started
