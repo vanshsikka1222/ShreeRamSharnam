@@ -175,3 +175,54 @@ tbody tr:hover {
     width: 100%;
   }
 }
+
+#download-pdf,
+#download-excel {
+  margin: 10px;
+}
+
+.download-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.btn-download {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+/* Excel button on the left - green */
+.excel-btn {
+  background-color: #2ecc71;
+  position: fixed;
+  bottom: 20px;
+  left: 1010px;
+}
+
+.excel-btn:hover {
+  background-color: #27ae60;
+}
+
+/* PDF button on the right - orange */
+.pdf-btn {
+  background-color: #ff7a00;
+}
+
+.pdf-btn:hover {
+  background-color: #e86800;
+}
+
+
