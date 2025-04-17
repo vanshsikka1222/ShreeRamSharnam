@@ -221,15 +221,20 @@ document.getElementById("download-excel").addEventListener("click", () => {
     return;
   }
 
-  const dataToExport = currentFiltered.map(row => {
-    const obj = {};
-    globalHeaders.forEach((header, i) => {
-      obj[header] = row[i] !== undefined ? row[i] : "";
-    });
-    return obj;
-  });
+  // Compose the export data manually with:
+  // Row 1: master title (e.g. "MASTER FILE")
+  // Row 2: actual headers
+  // Row 3+: filtered rows
 
-  const worksheet = XLSX.utils.json_to_sheet(dataToExport);
+  const masterTitleRow = [ ["MASTER FILE"] ]; // or dynamic if needed
+  const headerRow = [ globalHeaders ];
+  const dataRows = currentFiltered.map(row =>
+    globalHeaders.map((_, i) => row[i] !== undefined ? row[i] : "")
+  );
+
+  const fullData = [...masterTitleRow, ...headerRow, ...dataRows];
+
+  const worksheet = XLSX.utils.aoa_to_sheet(fullData);
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, "Filtered Data");
 
