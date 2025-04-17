@@ -14,5 +14,5 @@ A powerful web-based tool for managing and processing Excel data. Built for ease
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/ShreeRamSharnam.git
+git clone https://github.com/vanshsikka1222/ShreeRamSharnam.git
 cd ShreeRamSharnam
