@@ -11,7 +11,9 @@
   <!-- Excel library -->
   <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-
+ 
+  <script type="text/javascript" src="https://stuk.github.io/jszip-utils/dist/jszip-utils.js"></script>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   
   <!-- PDF libraries (loaded dynamically in script.js) -->
 </head>
@@ -24,8 +26,15 @@
   <div id="table-container"></div>
   
   <div class="download-buttons">
+    <button id="download-Own-back" class="btn-download pdf-btn">📥 By Own Back</button>
+    <button id="download-Own" class="btn-download pdf-btn">📥 By Own Front</button>
+    <button id="download-train-back" class="btn-download pdf-btn">📥 By Train Back</button>
+    <button id="download-train" class="btn-download pdf-btn">📥 By Train Front</button>
+    <button id="download-bus-back" class="btn-download pdf-btn">📥 By Bus Back</button>
+    <button id="download-bus" class="btn-download pdf-btn">📥 By Bus Front</button>
     <button id="download-excel" class="btn-download excel-btn">📊 Download as Excel</button>
     <button id="download-pdf" class="btn-download pdf-btn">📥 Download as PDF</button>
+    
   </div>
 
 
