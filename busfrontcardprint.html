@@ -1,0 +1,56 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="cardprint.css">
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+   <page size="A4">
+   
+	 <!-- <div class="header-top top-margin">
+	 .
+	 </div> -->
+	 
+	 <div class="print-1 top-margin">
+	 
+        <div style="width:32.3cm;" class="Printdiv">
+            
+
+        </div>
+
+      
+          
+</div>
+   
+    </page>
+	
+	
+    <script>
+      $(document).ready(function(){
+        debugger;
+        var exceldata=localStorage.getItem("ExcelData");
+        const jsonData = JSON.parse(exceldata);
+        const globalRowsdata = jsonData.slice(2);
+        const filters =[{column:1,value:"बस द्वारा"
+  }];
+
+  //const showOnlyIncharges = document.getElementById("incharge-only")?.checked;
+
+  const currentFiltered = globalRowsdata.filter(row => {
+    const matchesFilters = filters.every(f => f.value === "" || String(row[f.column]) === f.value);
+    const nameColumn = row.find(cell => typeof cell === "string" && cell.includes("(Incharge)"));
+    const isIncharge = Boolean(nameColumn);
+    return matchesFilters ;
+  });
+  let printdata= renderCardPrint(currentFiltered);
+  $('.Printdiv').html(printdata);
+        window.print();
+});
+        
+
+    </script>
+
+</body>
+</html>
