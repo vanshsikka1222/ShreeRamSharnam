@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        @page {
+        /* @page {
             margin-left: 0px;
             margin-right: 0px;
             margin-top: 0cm;
@@ -376,9 +376,10 @@ height:2.8cm;
 margin-top:-20px;
 }
 
-
+ */
 
     </style>
+    <link rel="stylesheet" href="cardprint.css">
     <script src="jquery.js"></script>
     <script src="script.js"></script>
 </head>
@@ -406,7 +407,7 @@ margin-top:-20px;
 	
     <script>
       $(document).ready(function(){
-        debugger;
+        //debugger;
         var exceldata=localStorage.getItem("ExcelData");
         const jsonData = JSON.parse(exceldata);
         const globalRowsdata = jsonData.slice(2);
