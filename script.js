@@ -18,7 +18,7 @@ excelFile.addEventListener("change", (event) => {
   const reader = new FileReader();
 
   reader.onload = function (e) {
-    debugger;
+   // debugger;
     const data = new Uint8Array(e.target.result);
     const workbook = XLSX.read(data, { type: "array" });
     const sheetName = workbook.SheetNames[0];
@@ -54,7 +54,7 @@ function s2ab(s) {
   }
 function saveExcel()
 {
-  debugger;
+  //debugger;
 //$("#toExcel").click(function(){
 //var FileSaver = require('file-saver');
 
@@ -121,7 +121,7 @@ function renderFilters() {
 }
 
 function filterTable() {
-  debugger;
+  //debugger;
   const filters = Array.from(document.querySelectorAll("#filter-container select"))
     .map(select => ({ column: parseInt(select.dataset.column), value: select.value }));
 
@@ -138,7 +138,7 @@ function filterTable() {
 }
 
 function filterTableByBus(globalRowsdata) {
-  debugger;
+  //debugger;
   const filters =[{column:1,value:"बस द्वारा"
   }];
 
@@ -177,12 +177,17 @@ function renderownCardPrint( rows) {
   let i=0;
 
   rows.forEach(row => {
-    debugger;
+    //debugger;
     if(i%2==0){
       html += '<tr>';
+      html += '<td style="width: 50%; background-color: #e2efd9!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    html += '<td style="width: 50%;">';
-     html += '<div style="height: 6cm; overflow:hidden;">';
+    else{
+      html += '<td style="width: 50%; background-color: #e2efd9!important;">';
+    }
+    
+     html += '<div class="card-top">';
+     
              html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
                       html += '  <tr class="carduptr" style="background-color: #e2efd9!important;">';
                           
@@ -191,7 +196,7 @@ function renderownCardPrint( rows) {
                              html += ' <span class="zonetxt">जोन न:</span> <span class="zoneval"><u>'+row[14]+'</u></span>';
                                        html += '             </td>';
                                                     html += '<td style="text-align: right; vertical-align:middle; height:50px; padding-right: 15px;" width="50%">';
-                                                      html += '<span class="zonetxt">हाउस  ी डी  न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
+                                                      html += '<span class="zonetxt">हाउस आई डी न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
                                                                             html += '</td>';
                         html += '</tr>';
                         html += '<tr class="carduptr" style="background-color: #e2efd9!important;">';
@@ -225,7 +230,7 @@ function renderownCardPrint( rows) {
                 html += '</tr>';
                 html += '</table>';
                 html += '</div>';
-                html += '<div style="height: 2.7cm; overflow:hidden;">';
+                html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
               html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
                 html += '<tr>';
                           
@@ -285,17 +290,21 @@ function renderbackownCardPrint( rows) {
   let i=0;
 
   rows.forEach(row => {
-    
+    if(i<8){
     if(i%2==0){
       html += '<tr>';
+      html += '<td style="width: 50%; background-color: #e2efd9!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    html += '<td style="width: 50%;">';
-     html += '<div style="height: 6cm; overflow:hidden;">';
+    else{
+      html += '<td style="width: 50%; background-color: #e2efd9!important;">';
+    }
+    
+    html += '<div class="card-top">';
      html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
      html += '<tr class="carduptr" style="background-color: #e2efd9!important;">';
        
       
-         html += '<td style="vertical-align:left; height:50px; padding-left: 5px;">';
+         html += '<td style="vertical-align:left; height:50px;padding-top:15px; padding-left: 5px;">';
            html += '<span class="zonetxt"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
                                  html += '</td>';
                                  
@@ -318,7 +327,7 @@ function renderbackownCardPrint( rows) {
 
 html += '</table>';
                 html += '</div>';
-                html += '<div style="height: 2.7cm; overflow:hidden;">';
+                html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
               html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
                 html += '<tr>';
                           
@@ -347,6 +356,7 @@ html += '</table>';
                   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
+              }
                 i++;
   });
 
@@ -363,12 +373,16 @@ function rendertrainCardPrint( rows) {
   let i=0;
 
   rows.forEach(row => {
-    debugger;
+    //debugger;
     if(i%2==0){
       html += '<tr>';
+      html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    html += '<td style="width: 50%;">';
-     html += '<div style="height: 6cm; overflow:hidden;">';
+    else{
+      html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
+    }
+    
+     html += '<div class="card-top">';
              html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
                       html += '  <tr class="carduptr" style="background-color: #fbe4d5!important;">';
                           
@@ -377,7 +391,7 @@ function rendertrainCardPrint( rows) {
                              html += ' <span class="zonetxt">जोन न:</span> <span class="zoneval"><u>'+row[14]+'</u></span>';
                                        html += '             </td>';
                                                     html += '<td style="text-align: right; vertical-align:middle; height:50px; padding-right: 15px;" width="50%">';
-                                                      html += '<span class="zonetxt">हाउस  ी डी  न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
+                                                      html += '<span class="zonetxt">हाउस आई डी न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
                                                                             html += '</td>';
                         html += '</tr>';
                         html += '<tr class="carduptr" style="background-color: #fbe4d5!important;">';
@@ -413,7 +427,7 @@ function rendertrainCardPrint( rows) {
                 html += '</tr>';
                 html += '</table>';
                 html += '</div>';
-                html += '<div style="height: 2.7cm; overflow:hidden;">';
+                html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
               html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
                 html += '<tr>';
                           
@@ -473,17 +487,21 @@ function renderbacktrainCardPrint( rows) {
   let i=0;
 
   rows.forEach(row => {
-    
+    if(i<8){
     if(i%2==0){
       html += '<tr>';
+      html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    html += '<td style="width: 50%;">';
-     html += '<div style="height: 6cm; overflow:hidden;">';
+    else{
+      html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
+    }
+    
+     html += '<div class="card-top">';
      html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
      html += '<tr class="carduptr" style="background-color: #fbe4d5!important;">';
        
       
-         html += '<td style="vertical-align:left; height:50px; padding-left: 5px;">';
+         html += '<td style="vertical-align:left; height:50px;padding-top:15px; padding-left: 5px;">';
            html += '<span class="zonetxt"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
                                  html += '</td>';
                                  
@@ -507,7 +525,7 @@ function renderbacktrainCardPrint( rows) {
 
 html += '</table>';
                 html += '</div>';
-                html += '<div style="height: 2.7cm; overflow:hidden;">';
+                html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
               html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
                 html += '<tr>';
                           
@@ -536,6 +554,7 @@ html += '</table>';
                   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
+              }
                 i++;
   });
 
@@ -549,12 +568,15 @@ function renderCardPrint( rows) {
   let i=0;
 
   rows.forEach(row => {
-    debugger;
+    //debugger;
     if(i%2==0){
       html += '<tr>';
+      html += '<td style="width: 50%; background-color: #ccffff!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    html += '<td style="width: 50%;">';
-     html += '<div style="height: 6cm; overflow:hidden;">';
+    else{
+      html += '<td style="width: 50%; background-color: #ccffff!important;">';
+    }
+     html += '<div class="card-top">';
              html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
                       html += '  <tr class="carduptr" style="background-color: #ccffff!important;">';
                           
@@ -562,8 +584,8 @@ function renderCardPrint( rows) {
                            html += ' <td style="vertical-align:middle; height:50px; padding-left: 5px;" width="50%">';
                              html += ' <span class="zonetxt">जोन न:</span> <span class="zoneval"><u>'+row[14]+'</u></span>';
                                        html += '             </td>';
-                                                    html += '<td style="text-align: right; vertical-align:middle; height:50px; padding-right: 15px;" width="50%">';
-                                                      html += '<span class="zonetxt">हाउस  ी डी  न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
+                                                    html += '<td style="text-align: right; vertical-align:middle; height:50px; padding-right: 20px;" width="50%">';
+                                                      html += '<span class="zonetxt">हाउस आई डी न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
                                                                             html += '</td>';
                         html += '</tr>';
                         html += '<tr class="carduptr">';
@@ -591,26 +613,26 @@ function renderCardPrint( rows) {
                           
                          
                     html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" height="150px" width="100%" colspan="2">';
-                      html += '<span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
+                      html += '<table><tr><td style="width:25%"><span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
                       html += '&emsp;';
-                      html += '<span class="addrsstxt">नाम:- </span><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
-                      html += '<br>';
+                      html += '<span class="addrsstxt">नाम:- </span></td><td style="width:75%"><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
+                      html += '<br></td></tr>';
                      
-                     html += '<div style="display: flex;"> <div style="float: left; width: 40%;"><div><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></div></div>';
-                      html += '<div style="float: left;"><div><span class="addrssval"><u>'+row[8]+'</u></span></div></div>';                       
-                    html += '</div><br/>';
+                     html += '<tr><td><div style="display: flex;"> <div style="float: left;"><div><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></div></div></td>';
+                      html += '<td><div style="float: left;"><div><span class="addrssval"><u>'+row[8]+'</u></span></div></div>';                       
+                    html += '</div><br/></td></tr></table>';
                     html += '</td>';
                                             
                                            
                 html += '</tr>';
                 html += '</table>';
                 html += '</div>';
-                html += '<div style="height: 2.7cm; overflow:hidden;">';
+                html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
               html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
                 html += '<tr>';
                           
                          
-                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" width="100%" colspan="2">';
+                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 10px;" width="100%" colspan="2">';
                      html += ' <p class="lunchdiv"><u>भोजन कूपन</u> </p> ';
                       html += '<div style="display: flex;">';
                         html += '<div style="float: left; width: 35%;">';
@@ -666,17 +688,23 @@ function renderbackbusCardPrint( rows) {
   let i=0;
 
   rows.forEach(row => {
+    if(i<8){
+
     
     if(i%2==0){
       html += '<tr>';
+      html += '<td style="width: 50%; background-color: #ccffff!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    html += '<td style="width: 50%;">';
-     html += '<div style="height: 6cm; overflow:hidden;">';
+    else{
+      html += '<td style="width: 50%; background-color: #ccffff!important;">';
+    }
+    
+    html += '<div class="card-top">';
      html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
      html += '<tr class="carduptr" style="background-color: #ccffff!important;">';
        
       
-         html += '<td style="vertical-align:left; height:50px; padding-left: 5px;">';
+         html += '<td style="vertical-align:left; height:50px;padding-top:15px; padding-left: 5px;">';
            html += '<span class="zonetxt"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
                                  html += '</td>';
                                  
@@ -699,7 +727,7 @@ function renderbackbusCardPrint( rows) {
 
 html += '</table>';
                 html += '</div>';
-                html += '<div style="height: 2.7cm; overflow:hidden;">';
+                html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
               html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
                 html += '<tr>';
                           
@@ -728,6 +756,7 @@ html += '</table>';
                   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
+              }
                 i++;
   });
 
@@ -961,7 +990,7 @@ document.getElementById("download-excel").addEventListener("click", () => {
   // Row 1: master title (e.g. "MASTER FILE")
   // Row 2: actual headers
   // Row 3+: filtered rows
-debugger;
+//debugger;
   const masterTitleRow = [ ["MASTER FILE"] ]; // or dynamic if needed
   const headerRow = [ globalHeaders ];
   const dataRows = currentFiltered.map(row =>
