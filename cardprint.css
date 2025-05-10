@@ -162,7 +162,8 @@ font-size: 16px;
 font-size: 30px;
 }
 .addrsstxt{
-font-size: 13px;
+font-size: 12px;
+line-height: 1.7em;
 }
 .lunchdiv{
 font-size: 16px;
@@ -174,8 +175,14 @@ font-size: 13px;
 font-weight: 100;
 }
 .addrssval{
-font-size: .9em;
+font-size: .8em;
 font-weight: bold;
+padding-right: 60px;
+}
+.card-top{
+  height: 7.3cm; 
+  overflow:hidden;
+  padding-left: 10px
 }
 @media print {
   @page {
@@ -335,7 +342,8 @@ font-size: 16px;
 font-size: 30px;
 }
 .addrsstxt{
-font-size: 13px;
+font-size: 12px;
+line-height: 1.7em;
 }
 .lunchdiv{
 font-size: 16px;
@@ -347,8 +355,14 @@ font-size: 13px;
 font-weight: 100;
 }
 .addrssval{
-font-size: .9em;
+font-size: .8em;
 font-weight: bold;
+padding-right: 60px;
+}
+.card-top{
+  height: 7.3cm; 
+  overflow:hidden;
+  padding-left: 10px
 }
 .carduptr{
   background-color: #ccffff!important;
