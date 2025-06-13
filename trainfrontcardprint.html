@@ -393,7 +393,7 @@ margin-top:-20px;
 	 
 	 <div class="print-1 top-margin">
 	 
-        <div style="width:32.3cm;" class="Printdiv">
+        <div style="width:33cm;" class="Printdiv">
             
 
         </div>
@@ -422,6 +422,7 @@ margin-top:-20px;
     const isIncharge = Boolean(nameColumn);
     return matchesFilters ;
   });
+  debugger;
   let printdata= rendertrainCardPrint(currentFiltered);
   $('.Printdiv').html(printdata);
         window.print();
