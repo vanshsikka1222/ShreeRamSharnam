@@ -172,6 +172,39 @@ tbody tr:hover {
   z-index: 999;
   transition: background-color 0.3s ease;
 }
+
+#download-2Days{
+  position: fixed;
+  bottom: 80px;
+  right: 785px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+#download-2Days-back{
+  position: fixed;
+  bottom: 80px;
+  right: 965px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
 #download-bus {
   position: fixed;
   bottom: 30px;
