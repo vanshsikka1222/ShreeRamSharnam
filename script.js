@@ -9,6 +9,9 @@ const printByBacktrainBtn = document.getElementById("download-train-back");
 const printByOwnBtn = document.getElementById("download-Own");
 const printByBackOwnBtn = document.getElementById("download-Own-back");
 
+const printByTrain2DaysBtn = document.getElementById("download-2Days");
+const printByBacktrain2daysBtn = document.getElementById("download-2Days-back");
+
 let globalHeaders = [];
 let globalRows = [];
 let currentFiltered = [];
@@ -180,12 +183,12 @@ function renderownCardPrint( rows) {
     //debugger;
     if(i%2==0){
       html += '<tr>';
-      html += '<td style="width: 50%; background-color: #e2efd9!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+      //html += '<td style="width: 50%; background-color: #e2efd9!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    else{
-      html += '<td style="width: 50%; background-color: #e2efd9!important;">';
-    }
-    
+    // else{
+    //   html += '<td style="width: 50%; background-color: #e2efd9!important;">';
+    // }
+    html += '<td style="width: 50%;">';
      html += '<div class="card-top">';
      
              html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
@@ -215,15 +218,16 @@ function renderownCardPrint( rows) {
                           
                          
                     html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" height="150px" width="100%" colspan="2">';
-                      html += '<span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
+                    html+='<table width="100%"><tr>'  
+                    html += '<td><span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
                       html += '&emsp;';
-                      html += '<span class="addrsstxt">नाम:- </span><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
-                      html += '<br>';
-                      html += '<span class="addrsstxt">पानीपत पहुँचने का समय :  </span><span class="addrssval"><u>09.07.25</u></span><span class="addrsstxt"> को दोपहर </span><span class="addrssval"><u>1:00</u></span><span class="addrsstxt"> बजे तक | </span>';
-                      html += '<br>';
-                     html += '<div style="display: flex;"> <div style="float: left; width: 40%;"><div><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></div></div>';
-                      html += '<div style="float: left;"><div><span class="addrssval"><u>'+row[8]+'</u></span></div></div>';                       
-                    html += '</div><br/>';
+                      html += '<span class="addrsstxt">नाम:- </span></td><td><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                      html += '<td><span class="addrsstxt">पानीपत पहुँचने का समय :  </span></td><td><span class="addrssval"><u>09.07.25</u></span><span class="addrsstxt"> को दोपहर </span><span class="addrssval"><u>1:00</u></span><span class="addrsstxt"> बजे तक | </span>';
+                      html += '<br></td></tr><tr>';
+                     html += '<td><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></td>';
+                      html += '<td><span class="ppaddrssval"><u>'+row[8]+'</u></span>';                       
+                    html += '<div class="busfremptyspace"></div></td></tr></table>';
                     html += '</td>';
                                             
                                            
@@ -271,9 +275,14 @@ function renderownCardPrint( rows) {
                 if(i%2==1){
                   html += '</tr>';
                 }
-                if(i%2==1&&i%8==7){
+                // if(i%2==1&&i%8==7){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                if(i%2==1&&i%10==9){
                   html += '<tr>';
-                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
                 i++;
@@ -285,41 +294,41 @@ function renderownCardPrint( rows) {
 
 
 function renderbackownCardPrint( rows) {
-  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;margin-top:-0.3cm; border:none;">';
+  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
   
   let i=0;
 
   rows.forEach(row => {
-    if(i<8){
+    if(i<10){
     if(i%2==0){
       html += '<tr>';
-      html += '<td style="width: 50%; background-color: #e2efd9!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+      //html += '<td style="width: 50%; background-color: #e2efd9!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    else{
-      html += '<td style="width: 50%; background-color: #e2efd9!important;">';
-    }
-    
+    // else{
+    //   html += '<td style="width: 50%; background-color: #e2efd9!important;">';
+    // }
+    html += '<td style="width: 50%; ">';
     html += '<div class="card-top">';
      html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
      html += '<tr class="carduptr" style="background-color: #e2efd9!important;">';
        
       
-         html += '<td style="vertical-align:left; height:50px;padding-top:15px; padding-left: 5px;">';
-           html += '<span class="zonetxt"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
+         html += '<td style="vertical-align:middle; height:50px; padding-left: 5px;">';
+           html += '<span class="zonetxt" style="padding-left:20px;"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
                                  html += '</td>';
                                  
      html += '</tr>';
      html += '<tr class="carduptr" style="background-color: #e2efd9!important;">';
        
       
-       html += '<td style="vertical-align:middle; height:60px; text-align: left; padding-left: 5px;" width="100%">';
+       html += '<td style="vertical-align:middle; text-align: left; padding-left: 20px;" width="100%">';
          
            html += '<p class="addrsstxt">1. कृपया आप दिनांक: 09.07.25 दोपहर <u>1:00</u> तक पानीपत में ढहरने के स्थान पर पहुंचना सुनिश्चित बनाएं | </p>';
            
            html += '<p class="addrsstxt">2. कृपया अनुसाशन बनाये रखें |</p>';
            html += '<p class="addrsstxt">3. आवश्यकता पड़ने पर मो. संख्या 9988337689 या 9872455886 पर सम्पर्क करें |</p>';
            html += '<p class="addrsstxt">4. कृपया सुनिश्चित कर ले कि पानीपत में ढहरने के स्थान व आश्रम में आपका मोबाइल बंद है |</p>';
-           html += '<br/><br/>';
+           html += '<br/><div class="busfremptyspace"></div>';
                                html += '</td>';
 
                               
@@ -351,9 +360,14 @@ html += '</table>';
                 if(i%2==1){
                   html += '</tr>';
                 }
-                if(i%2==1&&i%8==7){
+                // if(i%2==1&&i%8==7){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                if(i%2==1&&i%10==9){
                   html += '<tr>';
-                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
               }
@@ -376,22 +390,22 @@ function rendertrainCardPrint( rows) {
     //debugger;
     if(i%2==0){
       html += '<tr>';
-      html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+      //html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    else{
-      html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
-    }
-    
+    // else{
+    //   html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
+    // }
+    html += '<td style="width: 50%;">';
      html += '<div class="card-top">';
              html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
                       html += '  <tr class="carduptr" style="background-color: #fbe4d5!important;">';
                           
                          
-                           html += ' <td style="vertical-align:middle; height:50px; padding-left: 5px;" width="50%">';
-                             html += ' <span class="zonetxt">जोन न:</span> <span class="zoneval"><u>'+row[14]+'</u></span>';
+                           html += ' <td style="vertical-align:middle; height:50px; padding-left: 15px;" width="50%">';
+                             html += ' <span class="zonetxt">जोन न:</span> <span class="zoneval"><u>'+(row[14]==undefined||row[14]==null?'':row[14])+'</u></span>';
                                        html += '             </td>';
                                                     html += '<td style="text-align: right; vertical-align:middle; height:50px; padding-right: 15px;" width="50%">';
-                                                      html += '<span class="zonetxt">हाउस आई डी न:</span> <span class="zoneval"><u>'+row[13]+'</u></span>';
+                                                      html += '<span class="zonetxt">हाउस आई डी न:</span> <span class="zoneval"><u>'+(row[13]==undefined||row[13]==null?'':row[13])+'</u></span>';
                                                                             html += '</td>';
                         html += '</tr>';
                         html += '<tr class="carduptr" style="background-color: #fbe4d5!important;">';
@@ -409,18 +423,19 @@ function rendertrainCardPrint( rows) {
                   html += '<tr class="carduptr" style="background-color: #fbe4d5!important;">';
                           
                          
-                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" height="150px" width="100%" colspan="2">';
-                      html += '<span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
+                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 15px;" height="150px" width="100%" colspan="2">';
+                    html += '<table width="100%"><tr>';  
+                    html += '<td style="width:4.3cm;"><span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+(row[3]==undefined||row[3]==null?'':row[3])+'</u></span> ';
                       html += '&emsp;';
-                      html += '<span class="addrsstxt">नाम:- </span><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
-                      html += '<br>';
-                      html += '<span class="addrsstxt">जालंधर से जाने का ट्रैन नं:  </span><span class="addrssval"><u>'+row[17]+'</u></span><span class="addrsstxt"> कोच नं: </span><span class="addrssval"><u>'+row[9]+'</u></span><span class="addrsstxt"> सीट नं </span><span class="addrssval"><u>'+row[10]+'</u></span>';
-                      html += '<br>';
-                      html += '<span class="addrsstxt">पानीपत से आने का ट्रैन नं:  </span><span class="addrssval"><u>'+row[18]+'</u></span><span class="addrsstxt"> कोच नं: </span><span class="addrssval"><u>'+row[11]+'</u></span><span class="addrsstxt"> सीट नं </span><span class="addrssval"><u>'+row[12]+'</u></span>';
-                      html += '<br>';
-                     html += '<div style="display: flex;"> <div style="float: left; width: 40%;"><div><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></div></div>';
-                      html += '<div style="float: left;"><div><span class="addrssval"><u>'+row[8]+'</u></span></div></div>';                       
-                    html += '</div><br/>';
+                      html += '<span class="addrsstxt">नाम:- </span></td><td><span class="addrssval"><u>'+(row[4]==undefined||row[4]==null?'':row[4])+' - '+(row[7]==undefined||row[7]==null?'':row[7])+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                      html += '<td><span class="addrsstxt">जालंधर से जाने का ट्रेन नं:  </span></td><td><span class="addrssval"><u>'+(row[17]==undefined||row[17]==null?'':row[17])+' </u></span><span class="addrsstxt">ट्रेन के पहुँचने का समय:  </span><span class="addrssval"><u>'+(row[19]==undefined||row[19]==null?'':row[19])+'</u></span><span class="addrsstxt"> कोच नं: </span><span class="addrssval"><u>'+(row[9]==undefined||row[9]==null?'':row[9])+'</u></span><span class="addrsstxt"> सीट नं </span><span class="addrssval"><u>'+(row[10]==undefined||row[10]==null?'':row[10])+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                      html += '<td><span class="addrsstxt">पानीपत से आने का ट्रेन नं:  </span></td><td><span class="addrssval"><u>'+(row[18]==undefined||row[18]==null?'':row[18])+' </u></span><span class="addrsstxt">ट्रेन के पहुँचने का समय:  </span><span class="addrssval"><u>'+(row[20]==undefined||row[20]==null?'':row[20])+'</u></span><span class="addrsstxt"> कोच नं: </span><span class="addrssval"><u>'+(row[11]==undefined||row[11]==null?'':row[11])+'</u></span><span class="addrsstxt"> सीट नं </span><span class="addrssval"><u>'+(row[12]==undefined||row[12]==null?'':row[12])+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                     html += '<td><span class="addrsstxt">पानीपत में ढहरने का स्थान:-</span></td>';
+                      html += '<td><span class="ppaddrssval"><u>'+(row[8]==undefined||row[8]==null?'':row[8])+'</u></span>';                       
+                    html += '<div class="busfremptyspace"></div></td></tr></table>';
                     html += '</td>';
                                             
                                            
@@ -432,7 +447,7 @@ function rendertrainCardPrint( rows) {
                 html += '<tr>';
                           
                          
-                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" width="100%" colspan="2">';
+                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 25px;" width="100%" colspan="2">';
                      html += ' <p class="lunchdiv"><u>भोजन कूपन</u> </p> ';
                       html += '<div style="display: flex;">';
                         html += '<div style="float: left; width: 35%;">';
@@ -468,9 +483,9 @@ function rendertrainCardPrint( rows) {
                 if(i%2==1){
                   html += '</tr>';
                 }
-                if(i%2==1&&i%8==7){
+                if(i%2==1&&i%10==9){
                   html += '<tr>';
-                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
                 i++;
@@ -482,34 +497,34 @@ function rendertrainCardPrint( rows) {
 
 
 function renderbacktrainCardPrint( rows) {
-  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;margin-top:-0.3cm; border:none;">';
+  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
   
   let i=0;
 
   rows.forEach(row => {
-    if(i<8){
+    if(i<10){
     if(i%2==0){
       html += '<tr>';
-      html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+      //html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    else{
-      html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
-    }
-    
+    // else{
+    //   html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
+    // }
+    html += '<td style="width: 50%; ">';
      html += '<div class="card-top">';
      html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
      html += '<tr class="carduptr" style="background-color: #fbe4d5!important;">';
        
       
-         html += '<td style="vertical-align:left; height:50px;padding-top:15px; padding-left: 5px;">';
-           html += '<span class="zonetxt"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
+         html += '<td style="vertical-align:middle; height:50px; padding-left: 5px;">';
+           html += '<span class="zonetxt" style="padding-left:20px;"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
                                  html += '</td>';
                                  
      html += '</tr>';
      html += '<tr class="carduptr" style="background-color: #fbe4d5!important;">';
        
       
-       html += '<td style="vertical-align:middle; height:60px; text-align: left; padding-left: 5px;" width="100%">';
+       html += '<td style="vertical-align:middle; text-align: left; padding-left: 20px;" width="100%">';
          
            html += '<p class="addrsstxt">1. कृपया आप दिनांक: 09.07.25 सुबह 6:50 तक जालंधर सिटी रेलवे स्टेशन, <u>प्लेटफार्म नं: 2</u> पर पहुंचे | </p>';
            html += '<p class="addrsstxt">2. कृपया आप वापिसी पर दिनांक 10.07.25 दोपहर <u>2:30</u> तक पानीपत रेलवे स्टेशन पर पहुंचे |</p>';
@@ -517,7 +532,7 @@ function renderbacktrainCardPrint( rows) {
            html += '<p class="addrsstxt">4. कृपया अनुसाशन बनाये रखें |</p>';
            html += '<p class="addrsstxt">5. आवश्यकता पड़ने पर मो. संख्या 9988337689 या 9872455886 पर सम्पर्क करें |</p>';
            html += '<p class="addrsstxt">6. कृपया सुनिश्चित कर ले कि पानीपत में ढहरने के स्थान व आश्रम में आपका मोबाइल बंद है |</p>';
-           html += '<br/><br/>';
+           html += '<div class="busfremptyspace"></div>';
                                html += '</td>';
 
                               
@@ -549,9 +564,14 @@ html += '</table>';
                 if(i%2==1){
                   html += '</tr>';
                 }
-                if(i%2==1&&i%8==7){
+                // if(i%2==1&&i%8==7){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                if(i%2==1&&i%10==9){
                   html += '<tr>';
-                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
               }
@@ -562,6 +582,217 @@ html += '</table>';
   return html;
 }
 
+
+
+function rendertrain2daysCardPrint( rows) {
+  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
+  
+  let i=0;
+
+  rows.forEach(row => {
+    //debugger;
+    if(i%2==0){
+      html += '<tr>';
+      //html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+    }
+    // else{
+    //   html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
+    // }
+    html += '<td style="width: 50%;">';
+     html += '<div class="ppcard-top">';
+             html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
+                      html += '  <tr class="carduptr" style="background-color: #f7cfd8!important;">';
+                          
+                         
+                           html += ' <td style="vertical-align:middle; height:50px; padding-left: 15px;" width="50%">';
+                             html += ' <span class="zonetxt" style="display:none">जोन न:</span> <span class="zoneval" style="display:none"><u>'+(row[14]==undefined||row[14]==null?'':row[14])+'</u></span>';
+                                       html += '             </td>';
+                                                    html += '<td style="text-align: right; vertical-align:middle; height:50px; padding-right: 15px;" width="50%">';
+                                                      html += '<span class="zonetxt" style="display:none">हाउस आई डी न:</span> <span class="zoneval" style="display:none"><u>'+(row[13]==undefined||row[13]==null?'':row[13])+'</u></span>';
+                                                                            html += '</td>';
+                        html += '</tr>';
+                        html += '<tr class="carduptr" style="background-color: #f7cfd8!important;">';
+                          
+                         
+                         html += ' <td style="vertical-align:middle; height:60px; text-align: center; padding-left: 5px;" width="100%" colspan="2">';
+                            html += '<h3>श्री राम शरणम सभा रजि.: (पानीपत)</h3> ';
+                              html += '<span class="addrsstxt">185, सिविल लाइन, जालंधर 0181 2453185</span>';
+                                                  html += '</td>';
+        
+                                                 
+                      html += '</tr>';
+                      
+                    
+                  html += '<tr class="carduptr" style="background-color: #f7cfd8!important;">';
+                          
+                         
+                    html += '<td style="vertical-align:middle; text-align: left; padding-left: 15px;" height="150px" width="100%" colspan="2">';
+                    html += '<table width="100%"><tr>';  
+                    html += '<td style="width:4.3cm;"><span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+(row[3]==undefined||row[3]==null?'':row[3])+'</u></span> ';
+                      html += '&emsp;';
+                      html += '<span class="addrsstxt">नाम:- </span></td><td><span class="addrssval"><u>'+(row[4]==undefined||row[4]==null?'':row[4])+' - '+(row[7]==undefined||row[7]==null?'':row[7])+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                      html += '<td><span class="addrsstxt">जालंधर से जाने का ट्रेन नं:  </span></td><td><span class="addrssval"><u>'+(row[17]==undefined||row[17]==null?'':row[17])+' </u></span><span class="addrsstxt">ट्रेन के पहुँचने का समय:  </span><span class="addrssval"><u>'+(row[19]==undefined||row[19]==null?'':row[19])+'</u></span><span class="addrsstxt"> कोच नं: </span><span class="addrssval"><u>'+(row[9]==undefined||row[9]==null?'':row[9])+'</u></span><span class="addrsstxt"> सीट नं </span><span class="addrssval"><u>'+(row[10]==undefined||row[10]==null?'':row[10])+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                      html += '<td><span class="addrsstxt">पानीपत से आने का ट्रेन नं:  </span></td><td><span class="addrssval"><u>'+(row[18]==undefined||row[18]==null?'':row[18])+' </u></span><span class="addrsstxt">ट्रेन के पहुँचने का समय:  </span><span class="addrssval"><u>'+(row[20]==undefined||row[20]==null?'':row[20])+'</u></span><span class="addrsstxt"> कोच नं: </span><span class="addrssval"><u>'+(row[11]==undefined||row[11]==null?'':row[11])+'</u></span><span class="addrsstxt"> सीट नं </span><span class="addrssval"><u>'+(row[12]==undefined||row[12]==null?'':row[12])+'</u></span>';
+                      html += '<br></td></tr><tr>';
+                     html += '<td><span class="addrsstxt" style="display:none;">पानीपत में ढहरने का स्थान:-</span></td>';
+                      html += '<td><span class="ppaddrssval" style="display:none;"><u>'+(row[8]==undefined||row[8]==null?'':row[8])+'</u></span>';                       
+                    html += '<div class="busfremptyspace"></div></td></tr></table>';
+                    html += '</td>';
+                                            
+                                           
+                html += '</tr>';
+                html += '</table>';
+                html += '</div>';
+                //html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
+              //html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
+                //html += '<tr>';
+                          
+                         
+                  //  html += '<td style="vertical-align:middle; text-align: left; padding-left: 25px;" width="100%" colspan="2">';
+                    // html += ' <p class="lunchdiv"><u>भोजन कूपन</u> </p> ';
+                      //html += '<div style="display: flex;">';
+                        //html += '<div style="float: left; width: 35%;">';
+                          //  html += '<span class="lunchdet">तिथि:</span>';
+                        //html += '</div>';
+                        //html += '<div style="float: left; ">';
+                          //  html += '<span class="lunchdet">10 जुलाई, 2025</span>';
+                        //html += '</div>';
+                      //html += '</div>';
+                      //html += '<div style="display: flex;">';
+                        //html += '<div style="float: left; width: 35%;">';
+                          //  html += '<span class="lunchdet">समय :</span>';
+                        //html += '</div>';
+                        //html += '<div style="float: left; ">';
+                          //  html += '<span class="lunchdet">प्रातः 11:30 बजे से दोपहर 12:30 बजे तक | </span>';
+                        //html += '</div>';
+                      //html += '</div>';
+                      //html += '<div style="display: flex;">';
+                        //html += '<div style="float: left; width: 35%;">';
+                          //  html += '<span class="lunchdet">स्थान :</span>';
+                        //html += '</div>';
+                        //html += '<div style="float: left; ">';
+                          //  html += '<span class="lunchdet">आर्य समाज मंदिर, मॉडल टाउन, पानीपत |</span>';
+                        //html += '</div>';
+                      //html += '</div><br/>';
+                    //html += '</td>';
+                                            
+                                           
+                //html += '</tr>';
+                  //  html += '</table>';
+                //html += '</td>';
+                
+                if(i%2==1){
+                  html += '</tr>';
+                }
+                if(i%2==1&&i%16==15){
+                  html += '<tr>';
+                  html += '<td style="height:60px" colspan="2"><td>';
+                  html += '</tr>';
+                }
+                i++;
+  });
+
+  html += "</table>";
+  return html;
+}
+
+
+function renderbacktrain2daysCardPrint( rows) {
+  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
+  
+  let i=0;
+
+  rows.forEach(row => {
+    if(i<16){
+    if(i%2==0){
+      html += '<tr>';
+      //html += '<td style="width: 50%; background-color: #fbe4d5!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+    }
+    // else{
+    //   html += '<td style="width: 50%; background-color: #fbe4d5!important;">';
+    // }
+    html += '<td style="width: 50%; ">';
+     html += '<div class="ppcard-top">';
+     html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
+     html += '<tr class="carduptr" style="background-color: #f7cfd8!important;">';
+       
+      
+         html += '<td style="vertical-align:middle; height:50px; padding-left: 5px;">';
+           html += '<span class="zonetxt" style="padding-left:20px;"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
+                                 html += '</td>';
+                                 
+     html += '</tr>';
+     html += '<tr class="carduptr" style="background-color: #f7cfd8!important;">';
+       
+      
+       html += '<td style="vertical-align:middle; text-align: left; padding-left: 20px;" width="100%">';
+         
+           html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">1. कृपया आप दिनांक: 08.07.25 सुबह 6:50 तक जालंधर सिटी रेलवे स्टेशन, <u>प्लेटफार्म नं: 2</u> पर पहुंचे | </p>';
+           html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">2. कृपया आप वापिसी पर दिनांक 10.07.25 दोपहर <u>2:30</u> तक पानीपत रेलवे स्टेशन पर पहुंचे |</p>';
+           html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">3. कृपया अपना कोच व सीट नं. देख कर बेठेें |</p>';
+           html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">4. कृपया अनुसाशन बनाये रखें |</p>';
+           html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">5. आवश्यकता पड़ने पर मो. संख्या '+(row[21]==undefined||row[21]==null?'':row[21])+' पर सम्पर्क करें |</p>';
+           //html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">5. आवश्यकता पड़ने पर मो. संख्या 9988337689 या 9872455886 पर सम्पर्क करें |</p>';
+           // html += '<p class="addrsstxt" style="line-height: 1.5em;!important;">6. कृपया सुनिश्चित कर ले कि पानीपत में ढहरने के स्थान व आश्रम में आपका मोबाइल बंद है |</p>';
+           html += '<div class="busfremptyspace"></div>';
+                               html += '</td>';
+
+                              
+   html += '</tr>';
+
+html += '</table>';
+                html += '</div>';
+               // html += '<div style="height: 2.7cm; overflow:hidden; background-color:#ffffff!important;">';
+              //html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
+                //html += '<tr>';
+                          
+                         
+                  //  html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" width="100%" colspan="2">';
+                    //  html += '<p class="lunchdiv" style="margin-top: .2cm;"><u>विनती</u> </p>'; 
+                      //html += '<div style="display: flex;">';
+                        //html += '<div style="float: left; width: 100%;min-height: 2cm; text-align: center;">';
+                          //  html += '<span class="lunchdet"><b>कृपया समय एवं अनुसाशन का विशेष ध्यान रखें |</b></span>';
+                        //html += '</div>';
+                      //html += '</div>';
+                      
+                      
+                    //html += '</td>';
+                                            
+                                           
+                //html += '</tr>';
+                  //  html += '</table>';
+                //html += '</td>';
+                
+                if(i%2==1){
+                  html += '</tr>';
+                }
+                // if(i%2==1&&i%8==7){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                // if(i%2==1&&i%10==9){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                // if(i%2==1&&i%16==15){
+                //   html += '<tr>';
+                //   html += '<td style="height:60px" colspan="2"><td>';
+                //   html += '</tr>';
+                // }
+              }
+                i++;
+  });
+
+  html += "</table>";
+  return html;
+}
+
+
+
 function renderCardPrint( rows) {
   let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
   
@@ -571,11 +802,12 @@ function renderCardPrint( rows) {
     //debugger;
     if(i%2==0){
       html += '<tr>';
-      html += '<td style="width: 50%; background-color: #ccffff!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+      //html += '<td style="width: 50%; background-color: #ccffff!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    else{
-      html += '<td style="width: 50%; background-color: #ccffff!important;">';
-    }
+    // else{
+    //   html += '<td style="width: 50%; background-color: #ccffff!important;">';
+    // }
+    html += '<td style="width: 50%;">';
      html += '<div class="card-top">';
              html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;  border:none;">';
                       html += '  <tr class="carduptr" style="background-color: #ccffff!important;">';
@@ -613,14 +845,14 @@ function renderCardPrint( rows) {
                           
                          
                     html += '<td style="vertical-align:middle; text-align: left; padding-left: 5px;" height="150px" width="100%" colspan="2">';
-                      html += '<table><tr><td style="width:25%"><span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
+                      html += '<table><tr><td style="width:4.3cm;"><span class="addrsstxt">क्रम संख्या:- </span><span class="addrssval"><u>'+row[3]+'</u></span> ';
                       html += '&emsp;';
-                      html += '<span class="addrsstxt">नाम:- </span></td><td style="width:75%"><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
+                      html += '<span class="addrsstxt">नाम:- </span></td><td><span class="addrssval"><u>'+row[4]+' - '+row[7]+'</u></span>';
                       html += '<br></td></tr>';
                      
-                     html += '<tr><td><div style="display: flex;"> <div style="float: left;"><div><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></div></div></td>';
-                      html += '<td><div style="float: left;"><div><span class="addrssval"><u>'+row[8]+'</u></span></div></div>';                       
-                    html += '</div><br/></td></tr></table>';
+                     html += '<tr><td><span class="addrsstxt">पानीपत में ढहरने का स्थान:- </span></td>';
+                      html += '<td><span class="ppaddrssval"><u>'+row[8]+'</u></span>';                       
+                    html += '<div class="busfremptyspace"></div></td></tr></table>';
                     html += '</td>';
                                             
                                            
@@ -668,9 +900,14 @@ function renderCardPrint( rows) {
                 if(i%2==1){
                   html += '</tr>';
                 }
-                if(i%2==1&&i%8==7){
+                // if(i%2==1&&i%8==7){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                if(i%2==1&&i%10==9){
                   html += '<tr>';
-                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
                 i++;
@@ -683,43 +920,43 @@ function renderCardPrint( rows) {
 
 
 function renderbackbusCardPrint( rows) {
-  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px;margin-top:-0.3cm; border:none;">';
+  let html = '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
   
   let i=0;
 
   rows.forEach(row => {
-    if(i<8){
+    if(i<10){
 
     
     if(i%2==0){
       html += '<tr>';
-      html += '<td style="width: 50%; background-color: #ccffff!important;border-right:solid; border-width:5px; border-color:#ffffff">';
+     // html += '<td style="width: 50%; background-color: #ccffff!important;border-right:solid; border-width:5px; border-color:#ffffff">';
     }
-    else{
-      html += '<td style="width: 50%; background-color: #ccffff!important;">';
-    }
-    
+    // else{
+    //   html += '<td style="width: 50%; background-color: #ccffff!important;">';
+    // }
+    html += '<td style="width: 50%;">';
     html += '<div class="card-top">';
      html += '<table  width="100%" style="border-collapse:collapse; border-color:rgba(0,0,0,0.5); border-width:1px; border:none;">';
      html += '<tr class="carduptr" style="background-color: #ccffff!important;">';
        
       
-         html += '<td style="vertical-align:left; height:50px;padding-top:15px; padding-left: 5px;">';
-           html += '<span class="zonetxt"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
+         html += '<td style="vertical-align:middle; height:50px; padding-left: 5px;">';
+           html += '<span class="zonetxt" style="padding-left:20px;"><u>ध्यान देने योग्य जरूरी बातें :-</u></span>';
                                  html += '</td>';
                                  
      html += '</tr>';
      html += '<tr class="carduptr">';
        
       
-       html += '<td style="vertical-align:middle; height:60px; text-align: left; padding-left: 5px;" width="100%">';
+       html += '<td style="vertical-align:middle; text-align: left; padding-left: 20px;" width="100%">';
          
            html += '<p class="addrsstxt">1. कृपया आप दिनांक: 09.07.25 सुबह 5:30 तक श्री राम शरणम् जालंधर पहुँच जाएं </p>';
            html += '<p class="addrsstxt">2. वापिसी पर बस दिनांक 10.07.25 को दोपहर भोजन उपरान्त 1:00 बजे भाटिया भवन पानीपत से चलेगी |</p>';
            html += '<p class="addrsstxt">3. कृपया अनुसाशन बनाये रखें |</p>';
            html += '<p class="addrsstxt">4. आवश्यकता पड़ने पर मो. संख्या 9988337689 या 9872455886 पर सम्पर्क करें |</p>';
            html += '<p class="addrsstxt">5. कृपया सुनिश्चित कर ले कि पानीपत में ढहरने के स्थान व आश्रम में आपका मोबाइल बंद है |</p>';
-           html += '<br/><br/>';
+           html += '<div class="busfremptyspace"></div>';
                                html += '</td>';
 
                               
@@ -751,9 +988,14 @@ html += '</table>';
                 if(i%2==1){
                   html += '</tr>';
                 }
-                if(i%2==1&&i%8==7){
+                // if(i%2==1&&i%8==7){
+                //   html += '<tr>';
+                //   html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                //   html += '</tr>';
+                // }
+                if(i%2==1&&i%10==9){
                   html += '<tr>';
-                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
+                  html += '<td style="min-height:2cm" colspan="2"><br/><br/><br/><br/><br/><br/><br/><br/><br/><td>';
                   html += '</tr>';
                 }
               }
@@ -871,7 +1113,7 @@ printByOwnBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+    //document.body.removeChild(loadingMsg);
   }
 });
 printByBackOwnBtn.addEventListener("click", async function () {
@@ -887,7 +1129,7 @@ printByBackOwnBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+    //document.body.removeChild(loadingMsg);
   }
 });
 
@@ -904,9 +1146,26 @@ printByTrainBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+    //document.body.removeChild(loadingMsg);
   }
 });
+printByTrain2DaysBtn.addEventListener("click", async function () {
+  if (currentFiltered.length === 0) {
+    alert("No data For 2 Days!");
+    return;
+  }
+
+  try {
+    //await filterTableByBus();
+    await window.open('./train2daysfrontcardprint.html', '_blank');
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    alert('There was an error generating the PDF: ' + error.message);
+  } finally {
+    //document.body.removeChild(loadingMsg);
+  }
+});
+
 printByBusBtn.addEventListener("click", async function () {
   if (currentFiltered.length === 0) {
     alert("No data of By Bus!");
@@ -920,7 +1179,7 @@ printByBusBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+   // document.body.removeChild(loadingMsg);
   }
 });
 
@@ -937,7 +1196,24 @@ printByBacktrainBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+   // document.body.removeChild(loadingMsg);
+  }
+});
+
+printByBacktrain2daysBtn.addEventListener("click", async function () {
+  if (currentFiltered.length === 0) {
+    alert("No data For 2 Days!");
+    return;
+  }
+
+  try {
+    //await filterTableByBus();
+    await window.open('./train2daysbackcardprint.html', '_blank');
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    alert('There was an error generating the PDF: ' + error.message);
+  } finally {
+   // document.body.removeChild(loadingMsg);
   }
 });
 
@@ -954,7 +1230,7 @@ printByBackBusBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+    //document.body.removeChild(loadingMsg);
   }
 });
 
@@ -967,7 +1243,7 @@ downloadBtn.addEventListener("click", async function () {
   const loadingMsg = document.createElement('div');
   loadingMsg.className = 'loading-msg';
   loadingMsg.innerHTML = '<div class="spinner"></div><div>Generating PDF...</div>';
-  document.body.appendChild(loadingMsg);
+  //document.body.appendChild(loadingMsg);
 
   try {
     await createPaginatedPDF(globalHeaders, currentFiltered);
@@ -975,7 +1251,7 @@ downloadBtn.addEventListener("click", async function () {
     console.error('Error generating PDF:', error);
     alert('There was an error generating the PDF: ' + error.message);
   } finally {
-    document.body.removeChild(loadingMsg);
+    //document.body.removeChild(loadingMsg);
   }
 });
 
